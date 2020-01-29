@@ -9,27 +9,28 @@ const Form = props => {
     })
 
     const handleChanges = e => {
-        setTeam({...team, [e.target.value]: e.target.value});
+        setTeam({...team, [e.target.name]: e.target.value});
     }
 
     const submitForm = e => {
         e.preventDefault();
-        props.addNewMember();
+        props.addNewTeam(team);
+        console.log(team)
     };
 
     return (
         <form onSubmit={submitForm}>
             <div>
                 <label htmlFor='name'>Member Name </label>
-                <input id='name' type='text' onChange={handleChanges} />
+                <input id='name' type='text' name='entry' onChange={handleChanges} />
             </div>
             <div>
                 <label htmlFor='email'>Member Email </label>
-                <input id='email' type='text' onChange={handleChanges} />
+                <input id='email' type='text' name='entry' onChange={handleChanges} />
             </div>
             <div>
                 <label htmlFor='role'>Member Role </label>
-                <input id='role' type='text' onChange={handleChanges} />
+                <input id='role' type='text' name='entry' onChange={handleChanges} />
             </div>
             <button type="submit">Add Member</button>
         </form>
