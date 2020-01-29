@@ -12,10 +12,19 @@ function App() {
       role: 'admin'
   }
 ])
+  const addNewMember = member => {
+    const newMember = {
+        id: Date.now(),
+        name: member.name,
+        email: member.email,
+        role: member.role
+    }
+    setTeam([...team, newMember]);
+  }
   return (
     <div className='App'>
       <h1>Team</h1>
-      <Form />
+      <Form addNewMember={addNewMember}/>
       <Team team={team} />
     </div>
   );
