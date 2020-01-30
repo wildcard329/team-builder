@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const Form = props => {
     const [team, setTeam] = useState({
-        id: 1,
         name: '',
         email: '',
         role: ''
@@ -10,7 +9,8 @@ const Form = props => {
 
     const handleChanges = e => {
         setTeam({...team, [e.target.name]: e.target.value});
-    }
+        console.log(team)
+    };
 
     const submitForm = e => {
         e.preventDefault();
@@ -22,15 +22,15 @@ const Form = props => {
         <form onSubmit={submitForm}>
             <div>
                 <label htmlFor='name'>Member Name </label>
-                <input id='name' type='text' name='entry' onChange={handleChanges} />
+                <input id='name' type='text' name='name' onChange={handleChanges} />
             </div>
             <div>
                 <label htmlFor='email'>Member Email </label>
-                <input id='email' type='text' name='entry' onChange={handleChanges} />
+                <input id='email' type='text' name='email' onChange={handleChanges} />
             </div>
             <div>
                 <label htmlFor='role'>Member Role </label>
-                <input id='role' type='text' name='entry' onChange={handleChanges} />
+                <input id='role' type='text' name='role' onChange={handleChanges} />
             </div>
             <button type="submit">Add Member</button>
         </form>
