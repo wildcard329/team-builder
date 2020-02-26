@@ -6,17 +6,17 @@ import './App.css';
 function App() {
   const [member, setMember] = useState([
     {
-      name: 'Adam',
-      email: 'someemail@mail.com',
-      position: 'student'
+      name: '',
+      email: '',
+      position: ''
     }
   ]);
-  const addMember = member => {
+  const addMember = mbr => {
     const newMember = {
       id: Date.now(),
-      name: member.name,
-      email: member.email,
-      position: member.position
+      name: mbr.name,
+      email: mbr.email,
+      position: mbr.position
     }
     setMember([...member, newMember])
   }
