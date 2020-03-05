@@ -1,20 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
- const MemberForm = props => {
-     const [member, setMember] = useState({
-         name: '',
-         email: '',
-         position: ''
-     })
+ const Form = props => {
+     const [member, setMember] = useState(props.member)
      const handleChanges = e => {
          setMember({...member, [e.target.name]: e.target.value});
          
      };
      const submitForm = e => {
          e.preventDefault();
-         props.addMember(member);
-         setMember('');
-         console.log('submitform',member)
+         const filteredArr = props.team.filter(member => {
+             return (member.id !== props.member.id)
+         }) 
+         props.addMember(member, filteredArr)
      }
 
     return (
@@ -51,4 +48,4 @@ import React, {useState, useEffect} from 'react';
         </form>
     )
 }
-export default MemberForm;
+export default Form;

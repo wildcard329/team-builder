@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from './Form';
 
 const Member = props => {
     return (
@@ -8,6 +9,7 @@ const Member = props => {
                     <p>{mbr.name}</p>
                     <p>{mbr.email}</p>
                     <p>{mbr.position}</p>
+                    <Form member={mbr} addMember={props.addMember} team={props.member} />
                 </div>
             ))}
         </div>
